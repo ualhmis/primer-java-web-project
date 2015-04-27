@@ -1,0 +1,70 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>PrimerWebProjectSQLite</groupId>
+  <artifactId>PrimerWebProjectSQLite</artifactId>
+  <version>0.1</version>
+  <packaging>war</packaging>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <testSourceDirectory>test</testSourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+            <version>2.4</version>
+            <configuration>
+                <webXml>WebContent\WEB-INF\web.xml</webXml>
+            
+				<webResources>
+					<resource>
+						<directory>${basedir}/WebContent</directory>
+					</resource>
+				</webResources>
+				<warSourceDirectory>WebContent</warSourceDirectory>
+				<warSourceExcludes>WebContent/WEB-INF/lib/*.jar</warSourceExcludes>
+				<archiveClasses>false</archiveClasses>
+				<archive>
+					<manifest>
+						<addClasspath>true</addClasspath>
+						<classpathPrefix />
+					</manifest>
+					<manifestEntries>
+						<url>${pom.url}</url>
+						<Implementation-Build>${buildNumber}</Implementation-Build>
+						<Implementation-Title>${project.name}</Implementation-Title>
+						<Implementation-Vendor>Ampliación de Ingeniería del Sf</Implementation-Vendor>
+						<Implementation-Version>${project.version}</Implementation-Version>
+						<Built-By>${user.name}</Built-By>
+						<Built-OS>${os.name}</Built-OS>
+						<Build-Date>${timestamp}</Build-Date>
+						<SCM>${buildNumber}</SCM>
+					</manifestEntries>
+				</archive>
+        	</configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+  	<dependency>
+  		<groupId>junit</groupId>
+  		<artifactId>junit</artifactId>
+  		<version>4.11</version>
+  	</dependency>
+  	<dependency>
+		<groupId>org.xerial</groupId>
+		<artifactId>sqlite-jdbc</artifactId>
+	<version>3.7.2</version>
+</dependency>
+  	
+  </dependencies>
+</project>
